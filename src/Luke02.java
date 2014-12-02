@@ -46,10 +46,13 @@ public class Luke02 {
     }
 
     public static void main(String[] args) {
+        long start = System.nanoTime();
         Luke02 l = new Luke02();
 
         for (int n = 1; n <= 9; n++) {
             System.out.println("N: " + n + " M: " + l.getM(n));
         }
+
+        System.out.println((System.nanoTime() - start) / 1000 + "µs");
     }
 }

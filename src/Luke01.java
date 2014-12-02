@@ -3,7 +3,7 @@ import static java.lang.Integer.toOctalString;
 public class Luke01 {
 
     private static boolean isPalindrome(int t) {
-        return isPalindrome((t+"").toCharArray());
+        return isPalindrome((t + "").toCharArray());
     }
 
     private static boolean isPalindrome(String s) {
