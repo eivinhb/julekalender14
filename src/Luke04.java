@@ -13,9 +13,9 @@ public class Luke04 {
         Luke04 luke = new Luke04();
 
         Temp laveste = luke.reader.lines()
-                .filter(s -> luke.filterWeatherDataBlindern(s))
+                .filter(s -> s.startsWith("   18700 "))
                 .map(s -> new Temp(s))
-                .filter(temp -> luke.filterDesember(temp.Dato))
+                .filter(temp -> temp.Dato.split("\\.")[1].equals("12"))
                 .reduce((t1, t2) -> t1.TAN < t2.TAN ? t1 : t2).get();
 
         System.out.println("Laveste temp: " + laveste);
@@ -28,14 +28,6 @@ public class Luke04 {
         String file = "https://dl.dropboxusercontent.com/u/45621/kilma_data_blindern.txt";
         URLConnection connection = new URL(file).openConnection();
         this.reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-    }
-
-    private boolean filterWeatherDataBlindern(String s) {
-        return s.startsWith("   18700 ");
-    }
-
-    private boolean filterDesember(String s) {
-        return s.split("\\.")[1].equals("12");
     }
 
     public static class Temp {
