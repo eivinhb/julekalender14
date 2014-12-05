@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
-import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
 public class Luke05 {
@@ -9,17 +8,12 @@ public class Luke05 {
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
 
-        Supplier<IntStream> supplier = () -> IntStream
-                .range(123456789, 987654321 + 1)
-                .filter(arr -> isSTORTTALL(arr)).parallel();
-
-        OptionalInt min = supplier.get()
+        OptionalInt min = IntStream.range(123456789, 987654321 + 1)
+                .filter(arr -> isSTORTTALL(arr)).parallel()
                 .map(n -> primfaktorer(n))
                 .min();
 
-        long antall = supplier.get().count();
-
-        System.out.println("Minste: " + min.getAsInt() + " Antall: " + antall + " " + (System.currentTimeMillis() - start) + "ms");
+        System.out.println("Minste: " + min.getAsInt() + " " + (System.currentTimeMillis() - start) + "ms");
 
     }
 
