@@ -1,11 +1,11 @@
+import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class Luke06 {
 
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
-        Set<Integer> products = new TreeSet<>();
+        Set<Integer> products = new HashSet<>();
 
         for(int i = 1; i <= 8000; i++){
             for(int p = 1; p <= 8000; p++){
